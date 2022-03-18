@@ -39,7 +39,6 @@ int main()
     }
     cout << endl;
 
-
     //1era funcion:
     /*int menorValor, mayorValor, diferencia;
 
