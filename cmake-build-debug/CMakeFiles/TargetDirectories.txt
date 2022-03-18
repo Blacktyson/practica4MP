@@ -1,0 +1,3 @@
+/home/jotace/Escritorio/Jc/MP/practicas/practica4/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/jotace/Escritorio/Jc/MP/practicas/practica4/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/jotace/Escritorio/Jc/MP/practicas/practica4/cmake-build-debug/CMakeFiles/practica4.dir

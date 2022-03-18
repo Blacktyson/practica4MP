@@ -1,0 +1,4 @@
+/var/lib/snapd/snap/clion/184/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/var/lib/snapd/snap/clion/184/bin/ninja/linux/ninja -G Ninja /home/jotace/Escritorio/Jc/MP/practicas/practica4
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/jotace/Escritorio/Jc/MP/practicas/practica4/cmake-build-debug

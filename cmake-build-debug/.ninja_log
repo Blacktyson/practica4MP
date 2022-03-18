@@ -1,0 +1,11 @@
+# ninja log v5
+0	564	1647594304316732540	CMakeFiles/practica4.dir/src/calculos.cpp.o	ffbf5e2699b16792
+0	594	1647594304346732540	CMakeFiles/practica4.dir/src/main.cpp.o	55f23d68c5f201dc
+1	437	1647594362756733766	CMakeFiles/practica4.dir/src/calculos.cpp.o	ffbf5e2699b16792
+0	518	1647594362840067102	CMakeFiles/practica4.dir/src/main.cpp.o	55f23d68c5f201dc
+519	632	1647594362950067104	practica4	b62a9842d135d3e
+1	453	1647630747682692690	CMakeFiles/practica4.dir/src/calculos.cpp.o	ffbf5e2699b16792
+1	511	1647630747739359360	CMakeFiles/practica4.dir/src/main.cpp.o	55f23d68c5f201dc
+511	599	1647630747826026030	practica4	b62a9842d135d3e
+1	412	1647630860396030493	CMakeFiles/practica4.dir/src/main.cpp.o	55f23d68c5f201dc
+413	501	1647630860482697163	practica4	b62a9842d135d3e
