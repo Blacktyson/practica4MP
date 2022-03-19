@@ -4,7 +4,7 @@
 
 const int MAX_F = 366;
 const int MAX_C = 4;
-const int MARCA_FIN = 31;
+const float MARCA_FIN = 31;
 const int MAX_FNEW = 12;
 const int MAX_CNEW = 31;
 #include <iostream>

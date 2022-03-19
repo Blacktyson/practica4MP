@@ -107,15 +107,40 @@ void valoresExtremosAnuales (const float anio[MAX_F][MAX_C], int &warm_day, int 
 void ExtraeDatos(const float anio[MAX_F][MAX_C], float M[MAX_FNEW][MAX_CNEW], int col){
 
     int contador = 0;
+    float mostrG,mostrP,mostrD;
+    bool bisiesto;
 
     for (int i = 0; i < MAX_FNEW; i++){
+        bisiesto = false;
+        for (int j = 0; j <MAX_CNEW &&!bisiesto; j++){
 
-        for (int j = 0; j <MAX_CNEW; j++){
+            mostrG = anio[contador][col];
+            mostrP = M[i][j];
+            mostrD = anio[contador][0];
 
-            if ((anio[contador][0] == MAX_FNEW - 2 or anio[contador][0] == MAX_FNEW - 1)  and anio [contador][0] == 1){
 
-                M[i+1][j] = MARCA_FIN;
-                contador++;
+            if ((anio[contador][0] == MAX_CNEW - 2 or anio[contador][0] == MAX_CNEW - 1)  and anio [contador+1][0] == 1){
+                if (anio[contador][0] == MAX_CNEW - 2){
+
+                    M[i][j] = anio[contador][col];
+                    mostrP = M[i][j];
+                    M[i][j+1] = MARCA_FIN;
+                    mostrP = M[i][j+1];
+                    M[i][j+2] = MARCA_FIN;
+                    mostrP = M[i][j+2];
+                    contador++;
+                    bisiesto = true;
+
+
+                }
+                else if (anio[contador][0] == MAX_CNEW -1 and !bisiesto){
+                    M[i][j] = anio[contador][col];
+                    mostrP = M[i][j];
+                    M[i][j+1] = MARCA_FIN;
+                    mostrP = M[i][j];
+                    contador++;
+                    bisiesto = true;
+                }
 
             }
             else{
