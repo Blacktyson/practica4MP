@@ -8,8 +8,8 @@
 #include "../include/calculos.h"
 #include <iostream>
 using namespace std;
-int mayorTemperatura(const float anio[MAX_F][MAX_C], float M[MAX_FNEW][MAX_CNEW], bool original, int mes){
-    int resultado;
+float mayorTemperatura(const float anio[MAX_F][MAX_C], float M[MAX_FNEW][MAX_CNEW], bool original, int mes){
+    float resultado;
     if (original){
 
     int j = 2;
@@ -38,14 +38,12 @@ int mayorTemperatura(const float anio[MAX_F][MAX_C], float M[MAX_FNEW][MAX_CNEW]
 
     }
 
-
-
     return resultado;
 
 }
-int menorTemperatura(const float anio[MAX_F][MAX_C], float M[MAX_FNEW][MAX_CNEW], bool original, int mes){
+float menorTemperatura(const float anio[MAX_F][MAX_C], float M[MAX_FNEW][MAX_CNEW], bool original, int mes){
 
-    int resultado;
+    float resultado;
 
     if (original) {
         int j = 3;
@@ -77,10 +75,10 @@ int menorTemperatura(const float anio[MAX_F][MAX_C], float M[MAX_FNEW][MAX_CNEW]
     return resultado;
 }
 
-int amplitudTermica(const float anio[MAX_F][MAX_C]){
+float amplitudTermica(const float anio[MAX_F][MAX_C]){
 
 
-    int resultado = (anio[0][2] - anio[0][3]);
+    float resultado = (anio[0][2] - anio[0][3]);
 
     for (int i = 0; i < MAX_F; i++){
 
@@ -97,7 +95,7 @@ int amplitudTermica(const float anio[MAX_F][MAX_C]){
 }
 
 
-void valoresExtremosAnuales (const float anio[MAX_F][MAX_C], int &warm_day, int &cold_day, int &difference){
+void valoresExtremosAnuales (const float anio[MAX_F][MAX_C], float &warm_day, float &cold_day, float &difference){
 
     warm_day = mayorTemperatura(anio, 0, true, -1);
     cold_day = menorTemperatura(anio, 0, true, -1);
@@ -214,15 +212,16 @@ bool mesCorrecto(int numMes){
     return correcto;
 }
 
-void valoresExtremos(const float anio[MAX_F][MAX_C], float MMayor[MAX_FNEW][MAX_CNEW], float MMenor[MAX_FNEW][MAX_CNEW], int& valorMax, int &valorMin, string mes){
+void valoresExtremos(const float anio[MAX_F][MAX_C], float M[MAX_FNEW][MAX_CNEW], float& valorMax, float& valorMin, string mes){
 
     extraerMes(mes);
 
-    ExtraeDatos(anio,MMayor,2);
-    ExtraeDatos(anio, MMenor, 3);
+    ExtraeDatos(anio,M, 2);
+    limpiador(M);
+    ExtraeDatos(anio, M, 3);
 
-    valorMax = mayorTemperatura(anio,MMayor,false, extraerMes(mes));
-    valorMin = menorTemperatura(anio, MMenor, false, extraerMes(mes));
+    valorMax = mayorTemperatura(anio,M,false, extraerMes(mes));
+    valorMin = menorTemperatura(anio, M, false, extraerMes(mes));
 
 }
 
@@ -232,4 +231,85 @@ void limpiador(float M[MAX_FNEW][MAX_CNEW]){
             M[i][j] = 0;
         }
     }
+}
+
+void menu(const float anio[MAX_F][MAX_C], float Maux[MAX_FNEW][MAX_CNEW]){
+
+    char enter;
+    int valorIntroducido;
+    string separator = "=================================================================================";
+
+    cout << "BIENVENIDO/A AL MENÚ DE LA PRÁCTICA DE MATRICES"<<endl<<"Realizado por Montes Ronda Juan Carlos 1ºD3"<<endl<<"A continuación se le mostrarán las opciones.";
+
+    cout << endl<<separator<<endl;
+
+    cout << "1. Leer matriz anual."<<endl;
+    cout << "2. Generar matriz por temperaturas."<<endl;
+    cout << "3. Obtener los valores mayores, menores y la mayor amplitud anual"<<endl;
+    cout << "4. Obtener la media de las temperaturas de un mes"<<endl;
+    cout << "5. Obtener valores minimos y maximos de un mes";
+    cout << endl<<separator<<endl;
+    cout << "0. Salir del menú y cerrar el programa"<<endl;
+    cout << separator<<endl;
+    cout << "Inserte el número equivalente a la opción deseada: "<<endl;
+    cin >> valorIntroducido;
+    while (!valorIntroducidoCorrecto(valorIntroducido)){
+
+        cout << "La opcion pedida no corresponde a ninguna opcion"<<endl;
+        cin >> valorIntroducido;
+
+    }
+    cout << "ok";
+    opcionesSwitcher(valorIntroducido,anio,Maux);
+
+}
+bool valorIntroducidoCorrecto(int valor){
+    bool incorrecto = false;
+    if (valor!=0 or valor!=1 or valor!=2 or valor!=3 or valor!=4 or valor!=5){
+
+        incorrecto = true;
+
+    }
+    return incorrecto;
+}
+void opcionesSwitcher(int valor,const float anio[MAX_F][MAX_C], float Maux[MAX_FNEW][MAX_CNEW]){
+
+    bool anual;
+
+    switch (valor) {
+
+        case 1:
+            anual = true;
+            lectorMatriz(anio,Maux,anual,0);
+
+
+
+    }
+
+
+}
+void lectorMatriz(const float anio[MAX_F][MAX_C], float Maux[MAX_FNEW][MAX_CNEW], bool anual, int col){
+
+    if (anual){
+
+        for (int i = 0; i < MAX_F; i++) {
+            cout << endl;
+            for (int j = 0; j < MAX_C; j++)
+                cout << anio[i][j] << "\t";
+
+        }
+        cout << endl;
+
+    }
+    else
+        ExtraeDatos(anio, Maux, col);
+        for (int i = 0; i <MAX_FNEW; i++){
+            for (int j = 0; j < MAX_CNEW; j++){
+              cout << Maux[i][j] << "\t";
+            }
+            cout <<endl;
+        }
+
+
+
 }

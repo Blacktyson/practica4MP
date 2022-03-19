@@ -24,15 +24,17 @@ int main()
     float M[FILAS_BASE][COLS_BASE];
     float Maux[MAX_FNEW][MAX_CNEW];
 
-    // cargar valores usando redirección de entrada
+
+
+    //cargar valores usando redirección de entrada
     for(int i = 0; i < FILAS_BASE; i++){
         for(int j = 0; j < COLS_BASE; j++){
             cin >> M[i][j];
         }
     }
-
-    // muestro los datos leídos - OPCION 1
+    menu(M,Maux);
     /*
+    // muestro los datos leídos - OPCION 1
     for (int i = 0; i < FILAS_BASE; i++) {
         cout << endl;
         for (int j = 0; j < COLS_BASE; j++)
@@ -42,14 +44,14 @@ int main()
     cout << endl;
 
     //1era funcion:
-    int menorValor, mayorValor, diferencia;
+    float menorValor, mayorValor, diferencia;
 
     valoresExtremosAnuales(M,mayorValor,menorValor,diferencia);
 
     cout <<"Mayor valor: "<< mayorValor << "."<<endl;
     cout <<"Menor valor: "<< menorValor << "."<<endl;
     cout <<"Diferencias: "<< diferencia << "."<<endl;
-    */
+
     //2a funcion:
     ExtraeDatos(M,Maux,2);
     for (int i = 0; i <MAX_FNEW; i++){
@@ -70,9 +72,16 @@ int main()
     suma = suma /31;
     cout << suma<<endl;
     limpiador(Maux);
-    cout <<mediaMensualAjustada(M,Maux,2,"febrero");
+    cout <<mediaMensualAjustada(M,Maux,2,"febrero")<<endl;
 
 
     //4a funcion:
+    float tempMax, tempMin;
+    limpiador(Maux);
+    valoresExtremos(M,Maux,tempMax,tempMin,"enero");
+    cout << "Max: "<<tempMax <<". Min: "<<tempMin<<endl;
+    */
 
-}
+
+    return 0;
+    }
