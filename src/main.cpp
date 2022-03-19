@@ -21,6 +21,7 @@ const int COLS_BASE = 4;
 int main()
 {
     float M[FILAS_BASE][COLS_BASE];
+    float Maux[MAX_FNEW][MAX_CNEW];
 
     // cargar valores usando redirección de entrada
     for(int i = 0; i < FILAS_BASE; i++){
@@ -29,7 +30,7 @@ int main()
         }
     }
 
-    // muestro los datos leídos - OPCION 1
+    /* muestro los datos leídos - OPCION 1
 
     for (int i = 0; i < FILAS_BASE; i++) {
         cout << endl;
@@ -46,7 +47,20 @@ int main()
 
     cout <<"Mayor valor: "<< mayorValor << "."<<endl;
     cout <<"Menor valor: "<< menorValor << "."<<endl;
-    cout <<"Diferencias: "<< diferencia << "."<<endl;
+    cout <<"Diferencias: "<< diferencia << "."<<endl;*/
+
+    //2a funcion:
+    ExtraeDatos(M,Maux,2);
+    for (int i = 0; i <MAX_FNEW; i++){
+
+        for (int j = 0; j < MAX_CNEW; j++){
+
+            cout << Maux[i][j] << "\t";
+
+        }
+        cout <<endl;
+
+    }
 
 
 }
