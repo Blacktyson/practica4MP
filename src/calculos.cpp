@@ -12,7 +12,7 @@ int mayorTemperatura(const float anio[MAX_F][MAX_C], float M[MAX_FNEW][MAX_CNEW]
     int resultado;
     if (original){
 
-    int j = 3;
+    int j = 2;
     resultado = anio [0][j];
     for (int i = 0; i < MAX_F; i++){
 
@@ -48,7 +48,7 @@ int menorTemperatura(const float anio[MAX_F][MAX_C], float M[MAX_FNEW][MAX_CNEW]
     int resultado;
 
     if (original) {
-        int j = 2;
+        int j = 3;
         resultado = anio[0][j];
         for (int i = 0; i < MAX_F; i++) {
 

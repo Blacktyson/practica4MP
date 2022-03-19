@@ -40,13 +40,13 @@ int main()
     cout << endl;
 
     //1era funcion:
-    /*int menorValor, mayorValor, diferencia;
+    int menorValor, mayorValor, diferencia;
 
     valoresExtremosAnuales(M,mayorValor,menorValor,diferencia);
 
     cout <<"Mayor valor: "<< mayorValor << "."<<endl;
     cout <<"Menor valor: "<< menorValor << "."<<endl;
     cout <<"Diferencias: "<< diferencia << "."<<endl;
-*/
+
 
 }
