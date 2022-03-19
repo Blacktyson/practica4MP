@@ -108,16 +108,11 @@ void ExtraeDatos(const float anio[MAX_F][MAX_C], float M[MAX_FNEW][MAX_CNEW], in
 
     int contador = 0;
     float mostrG,mostrP,mostrD;
-    bool bisiesto;
+    bool mesPeque;
 
     for (int i = 0; i < MAX_FNEW; i++){
-        bisiesto = false;
-        for (int j = 0; j <MAX_CNEW &&!bisiesto; j++){
-
-            mostrG = anio[contador][col];
-            mostrP = M[i][j];
-            mostrD = anio[contador][0];
-
+        mesPeque = false;
+        for (int j = 0; j <MAX_CNEW &&!mesPeque; j++){
 
             if ((anio[contador][0] == MAX_CNEW - 2 or anio[contador][0] == MAX_CNEW - 1)  and anio [contador+1][0] == 1){
                 if (anio[contador][0] == MAX_CNEW - 2){
@@ -129,17 +124,17 @@ void ExtraeDatos(const float anio[MAX_F][MAX_C], float M[MAX_FNEW][MAX_CNEW], in
                     M[i][j+2] = MARCA_FIN;
                     mostrP = M[i][j+2];
                     contador++;
-                    bisiesto = true;
+                    mesPeque = true;
 
 
                 }
-                else if (anio[contador][0] == MAX_CNEW -1 and !bisiesto){
+                else if (anio[contador][0] == MAX_CNEW -1 and !mesPeque){
                     M[i][j] = anio[contador][col];
                     mostrP = M[i][j];
                     M[i][j+1] = MARCA_FIN;
                     mostrP = M[i][j];
                     contador++;
-                    bisiesto = true;
+                    mesPeque = true;
                 }
 
             }
