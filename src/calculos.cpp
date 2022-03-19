@@ -151,11 +151,14 @@ float mediaMensualAjustada (const float anio[MAX_F][MAX_C], float M[MAX_FNEW][MA
 
     float suma = 0;
     float media;
+    int MostrM;
+    MostrM = extraerMes(mes);
     ExtraeDatos(anio,M, tipoTemperatura);
-    for (int i = 0; i < MAX_FNEW; i++){
+    for (int i = 0; i < MAX_CNEW; i++){
+
         suma += M[extraerMes(mes)][i];
     }
-    media = suma/MAX_FNEW;
+    media = suma/MAX_CNEW;
     return media;
 }
 int extraerMes(string mes){
@@ -221,4 +224,12 @@ void valoresExtremos(const float anio[MAX_F][MAX_C], float MMayor[MAX_FNEW][MAX_
     valorMax = mayorTemperatura(anio,MMayor,false, extraerMes(mes));
     valorMin = menorTemperatura(anio, MMenor, false, extraerMes(mes));
 
+}
+
+void limpiador(float M[MAX_FNEW][MAX_CNEW]){
+    for (int i = 0; i < MAX_FNEW; i++){
+        for (int j = 0; j < MAX_CNEW; j++){
+            M[i][j] = 0;
+        }
+    }
 }

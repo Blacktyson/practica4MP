@@ -22,6 +22,7 @@ int extraerMes (string mes);
 void pasarAMinuscula(string &mes);
 bool mesCorrecto(int numMes);
 void valoresExtremos(const float anio[MAX_F][MAX_C], float M[MAX_FNEW][MAX_CNEW],float MMenor[MAX_FNEW][MAX_CNEW], int &valorMax, int &valorMin, string mes);
+void limpiador(float M[MAX_FNEW][MAX_CNEW]);
 
 
 

@@ -6,6 +6,7 @@
 #include <ctime>
 #include "../include/calculos.h"
 #include <iomanip>
+#include <assert.h>
 using namespace std;
 
 const int FILAS_BASE = 366;
@@ -30,8 +31,8 @@ int main()
         }
     }
 
-    /* muestro los datos leídos - OPCION 1
-
+    // muestro los datos leídos - OPCION 1
+    /*
     for (int i = 0; i < FILAS_BASE; i++) {
         cout << endl;
         for (int j = 0; j < COLS_BASE; j++)
@@ -47,20 +48,31 @@ int main()
 
     cout <<"Mayor valor: "<< mayorValor << "."<<endl;
     cout <<"Menor valor: "<< menorValor << "."<<endl;
-    cout <<"Diferencias: "<< diferencia << "."<<endl;*/
-
+    cout <<"Diferencias: "<< diferencia << "."<<endl;
+    */
     //2a funcion:
     ExtraeDatos(M,Maux,2);
     for (int i = 0; i <MAX_FNEW; i++){
-
         for (int j = 0; j < MAX_CNEW; j++){
-
             cout << Maux[i][j] << "\t";
-
         }
         cout <<endl;
+    }
+    //3a funcion:
+
+    //cout <<mediaMensualAjustada(M,Maux,2,"enero")<<endl;
+    float suma = 0;
+    for (int i = 0; i < MAX_CNEW; i++){
+
+        suma += Maux[1][i];
 
     }
+    suma = suma /31;
+    cout << suma<<endl;
+    limpiador(Maux);
+    cout <<mediaMensualAjustada(M,Maux,2,"febrero");
 
+
+    //4a funcion:
 
 }
