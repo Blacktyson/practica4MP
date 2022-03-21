@@ -16,7 +16,7 @@ float menorTemperatura(float anio[MAX_F][MAX_C], float M[MAX_FNEW][MAX_CNEW], bo
 float mayorTemperatura(float anio[MAX_F][MAX_C], float M[MAX_FNEW][MAX_CNEW], bool original, int mes);
 float amplitudTermica(const float anio[MAX_F][MAX_C]);
 void valoresExtremosAnuales (const float anio[MAX_F][MAX_C], float &warm_day, float &cold_day, float &difference);
-void ExtraeDatos(const float anio[MAX_F][MAX_C], float M[12][31], int col);
+bool ExtraeDatos(const float anio[MAX_F][MAX_C], float M[12][31], int col);
 float mediaMensualAjustada (const float anio[MAX_F][MAX_C], float M[MAX_FNEW][MAX_CNEW], int tipoTemperatura, string mes);
 int extraerMes (string mes);
 void pasarAMinuscula(string &mes);
@@ -26,7 +26,7 @@ void limpiador(float M[MAX_FNEW][MAX_CNEW]);
 void menu(const float anio[MAX_F][MAX_C], float Maux[MAX_FNEW][MAX_CNEW]);
 void escribirMenu();
 bool valorIntroducidoCorrecto(int valor);
-void opcionesSwitcher(int valor,const float anio[MAX_F][MAX_C], float Maux[MAX_FNEW][MAX_CNEW]);
+void opcionesSwitcher(int valor,const float anio[MAX_F][MAX_C], float Maux[MAX_FNEW][MAX_CNEW], bool &extraida, int &ultimaCol);
 void lectorMatriz(const float anio[MAX_F][MAX_C], float Maux[MAX_FNEW][MAX_CNEW], bool anual, int col);
 
 

@@ -7,6 +7,8 @@
 #include "../include/calculos.h"
 #include <iomanip>
 #include <assert.h>
+#include <fstream>
+
 using namespace std;
 
 const int FILAS_BASE = 366;
@@ -32,7 +34,7 @@ int main(int argc, char *argv[])
             cin >> M[i][j];
         }
     }
-    menu(M,Maux);
+
 
      //muestro los datos leídos - OPCION 1
     for (int i = 0; i < FILAS_BASE; i++) {
@@ -85,6 +87,19 @@ int main(int argc, char *argv[])
 */
 
     //Entrada por fichero:
+
+    ifstream  f(argv[1]);
+    for(int i = 0; i<FILAS_BASE; ++i )
+    {
+        for( int j=0; j<COLS_BASE; ++j )
+            f >> M[i][j];
+    }
+
+    menu(M,Maux);
+
+
+
+
 
 
     return 0;
