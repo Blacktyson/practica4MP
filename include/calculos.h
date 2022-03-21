@@ -32,4 +32,5 @@ void lectorMatriz(const float anio[MAX_F][MAX_C], float Maux[MAX_FNEW][MAX_CNEW]
 
 
 
+
 #endif //PRACTICA4_CALCULOS_H
