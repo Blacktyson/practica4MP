@@ -286,7 +286,6 @@ void opcionesSwitcher(int valor,const float anio[MAX_F][MAX_C], float Maux[MAX_F
 
     bool anual = false;
     int tipoTemperatura;
-    bool extraeDatos = extraida;
 
     switch (valor) {
 
@@ -305,14 +304,13 @@ void opcionesSwitcher(int valor,const float anio[MAX_F][MAX_C], float Maux[MAX_F
                 tipoTemperaturaAuxiliar = tipoTemperatura;
 
             }
-            extraeDatos =ExtraeDatos(anio,Maux,tipoTemperatura);
+            extraida =ExtraeDatos(anio,Maux,tipoTemperatura);
             break;
         case 3:
-            //Cambiar extraeDatosPorExtraida
             bool extraeDatosAuxiliar = true;
-            if (!extraeDatos) {
+            if (!extraida) {
                 extraeDatosAuxiliar = false;
-                while (!extraeDatos) {
+                while (!extraida) {
 
                     cout
                             << "Primero debes etraer la matriz de datos. Inserte el tipo de temperatura (2 minimas) (3 maximas): "
@@ -322,14 +320,14 @@ void opcionesSwitcher(int valor,const float anio[MAX_F][MAX_C], float Maux[MAX_F
                         cout << "Has introducido un valor incorrecto. (2 minimas) (3 máximas): " << endl;
                         cin >> tipoTemperatura;
                     }
-                    extraeDatos = ExtraeDatos(anio, Maux, tipoTemperatura);
+                    extraida = ExtraeDatos(anio, Maux, tipoTemperatura);
 
                 }
                 lectorMatriz(anio, Maux, false, tipoTemperatura);
             }
-            else if (extraeDatos and extraeDatosAuxiliar){
+            else if (extraida and extraeDatosAuxiliar){
 
-            lectorMatriz(anio,Maux,false,tipoTemperaturaAuxiliar);
+            lectorMatriz(anio,Maux,false,ultimaCol);
             }
             break;
     }
