@@ -19,22 +19,22 @@ const int COLS_BASE = 4;
     cin > mes;
 
  }*/
-int main()
+int main(int argc, char *argv[])
 {
     float M[FILAS_BASE][COLS_BASE];
     float Maux[MAX_FNEW][MAX_CNEW];
 
 
 
-    //cargar valores usando redirección de entrada
+    /*cargar valores usando redirección de entrada
     for(int i = 0; i < FILAS_BASE; i++){
         for(int j = 0; j < COLS_BASE; j++){
             cin >> M[i][j];
         }
     }
     menu(M,Maux);
-    /*
-    // muestro los datos leídos - OPCION 1
+
+     //muestro los datos leídos - OPCION 1
     for (int i = 0; i < FILAS_BASE; i++) {
         cout << endl;
         for (int j = 0; j < COLS_BASE; j++)
@@ -80,7 +80,14 @@ int main()
     limpiador(Maux);
     valoresExtremos(M,Maux,tempMax,tempMin,"enero");
     cout << "Max: "<<tempMax <<". Min: "<<tempMin<<endl;
-    */
+
+
+*/
+
+    //Entrada por fichero:
+
+
+
 
 
     return 0;
