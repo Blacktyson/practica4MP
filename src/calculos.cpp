@@ -1,8 +1,5 @@
 
-
-//if (año%100 = 0 and año %4 = 0)
-//  es_bisiesto = true;
-// Created by jotace on 17/3/22.
+// Created by Montes Ronda Juan Carlos on 17/3/22.
 //
 
 #include "../include/calculos.h"
@@ -125,8 +122,7 @@ bool ExtraeDatos(const float anio[MAX_F][MAX_C], float M[MAX_FNEW][MAX_CNEW], in
                     mesPeque = true;
 
 
-                }
-                else if (anio[contador][0] == MAX_CNEW -1 and !mesPeque){
+                } else if (anio[contador][0] == MAX_CNEW - 1 and !mesPeque) {
                     M[i][j] = anio[contador][col];
                     M[i][j + 1] = MARCA_FIN;
                     contador++;
@@ -144,7 +140,7 @@ bool ExtraeDatos(const float anio[MAX_F][MAX_C], float M[MAX_FNEW][MAX_CNEW], in
     return true;
 }
 
-float mediaMensualAjustada(float M[MAX_FNEW][MAX_CNEW], const string& mes) {
+float mediaMensualAjustada(float M[MAX_FNEW][MAX_CNEW], const string &mes) {
 
     float suma = 0;
     float media;
@@ -190,7 +186,7 @@ int extraerMes(string mes) {
 }
 
 void pasarAMinuscula(string &mes) {
-    for (char & me : mes) {
+    for (char &me: mes) {
         me = tolower(me);
     }
 }
@@ -208,7 +204,7 @@ bool mesCorrecto(int numMes) {
 }
 
 void valoresExtremos(const float anio[MAX_F][MAX_C], float M[MAX_FNEW][MAX_CNEW], float &valorMax, float &valorMin,
-                     string& mes) {
+                     string &mes) {
 
     extraerMes(mes);
     limpiador(M);
@@ -259,14 +255,14 @@ void menu(const float anio[MAX_F][MAX_C], float Maux[MAX_FNEW][MAX_CNEW]) {
         cout << separator << endl;
         cout << "Inserte el número equivalente a la opción deseada: " << endl;
         cin >> valorIntroducido;
-        if (!valorIntroducidoCorrecto(valorIntroducido)){
-        while (!valorIntroducidoCorrecto(valorIntroducido)) {
+        if (!valorIntroducidoCorrecto(valorIntroducido)) {
+            while (!valorIntroducidoCorrecto(valorIntroducido)) {
 
-            cout << "La opcion pedida no corresponde a ninguna opcion" << endl;
-            cin >> valorIntroducido;
+                cout << "La opcion pedida no corresponde a ninguna opcion" << endl;
+                cin >> valorIntroducido;
 
 
-        }
+            }
         }
         if (valorIntroducido == 2) {
             extraida = true;
@@ -320,7 +316,7 @@ void opcionesSwitcher(int valor, const float anio[MAX_F][MAX_C], float Maux[MAX_
 
             }
             extraida = ExtraeDatos(anio, Maux, tipoTemperatura);
-            cout <<"Matriz extraida correctamente"<<endl;
+            cout << "Matriz extraida correctamente" << endl;
             break;
         case 3:
             if (!extraida) {
@@ -335,7 +331,7 @@ void opcionesSwitcher(int valor, const float anio[MAX_F][MAX_C], float Maux[MAX_
                         cin >> tipoTemperatura;
                     }
                     extraida = ExtraeDatos(anio, Maux, tipoTemperatura);
-                    cout <<"Matriz extraida correctamente"<<endl;
+                    cout << "Matriz extraida correctamente" << endl;
 
                 }
                 lectorMatriz(anio, Maux, extraida, tipoTemperatura);
@@ -363,7 +359,7 @@ void opcionesSwitcher(int valor, const float anio[MAX_F][MAX_C], float Maux[MAX_
                         cin >> tipoTemperatura;
                     }
                     extraida = ExtraeDatos(anio, Maux, tipoTemperatura);
-                    cout <<"Matriz extraida correctamente"<<endl;
+                    cout << "Matriz extraida correctamente" << endl;
                 }
                 cout << "Inserte el mes: " << endl;
                 cin >> mes;
@@ -373,7 +369,7 @@ void opcionesSwitcher(int valor, const float anio[MAX_F][MAX_C], float Maux[MAX_
                     cin >> mes;
                 }
                 cout << "La media de temperaturas " << queTemperatura << " del mes de " << mes << " es de: "
-                     << mediaMensualAjustada(Maux, mes)<<endl;
+                     << mediaMensualAjustada(Maux, mes) << endl;
             } else if (extraida) {
                 cout << "Inserte el mes: " << endl;
                 cin >> mes;
@@ -384,7 +380,7 @@ void opcionesSwitcher(int valor, const float anio[MAX_F][MAX_C], float Maux[MAX_
                 }
 
                 cout << "La media de temperaturas " << queTemperatura << " del mes de " << mes << " es de: "
-                     << mediaMensualAjustada(Maux, mes)<<endl;
+                     << mediaMensualAjustada(Maux, mes) << endl;
             }
             break;
         case 6:
@@ -451,8 +447,6 @@ void lectorMatriz(const float anio[MAX_F][MAX_C], float Maux[MAX_FNEW][MAX_CNEW]
             cout << endl;
         }
     }
-
-
 }
 
 void acercaDe() {
