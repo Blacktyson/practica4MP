@@ -26,7 +26,7 @@ void limpiador(float M[MAX_FNEW][MAX_CNEW]);
 void menu(const float anio[MAX_F][MAX_C], float Maux[MAX_FNEW][MAX_CNEW]);
 void escribirMenu();
 bool valorIntroducidoCorrecto(int valor);
-void opcionesSwitcher(int valor,const float anio[MAX_F][MAX_C], float Maux[MAX_FNEW][MAX_CNEW], bool &extraida, int &ultimaCol);
+void opcionesSwitcher(int valor,const float anio[MAX_F][MAX_C], float Maux[MAX_FNEW][MAX_CNEW], bool &extraida, int &ultimaCol, float &valorMin, float &valorMax, float &difference);
 void lectorMatriz(const float anio[MAX_F][MAX_C], float Maux[MAX_FNEW][MAX_CNEW], bool anual, int col);
 
 

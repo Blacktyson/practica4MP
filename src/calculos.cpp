@@ -236,6 +236,7 @@ void menu(const float anio[MAX_F][MAX_C], float Maux[MAX_FNEW][MAX_CNEW]){
     int valorIntroducido = 100000000;
     bool extraida = false;
     int ultimaCol = 0;
+    float valorMin, valorMax, difference;
 
     string separator = "=================================================================================";
 
@@ -268,7 +269,7 @@ void menu(const float anio[MAX_F][MAX_C], float Maux[MAX_FNEW][MAX_CNEW]){
 
     }
 
-    opcionesSwitcher(valorIntroducido,anio,Maux,extraida, ultimaCol);
+    opcionesSwitcher(valorIntroducido,anio,Maux,extraida, ultimaCol,valorMin,valorMax, difference);
     cout <<" Inserte cualquier letra para volver al menú"<<endl;
     cin >> enter;
     }
@@ -282,34 +283,29 @@ bool valorIntroducidoCorrecto(int valor){
     }
     return incorrecto;
 }
-void opcionesSwitcher(int valor,const float anio[MAX_F][MAX_C], float Maux[MAX_FNEW][MAX_CNEW], bool &extraida, int &ultimaCol){
+void opcionesSwitcher(int valor,const float anio[MAX_F][MAX_C], float Maux[MAX_FNEW][MAX_CNEW], bool &extraida, int &ultimaCol, float &valorMin, float &valorMax, float &difference){
 
-    bool anual = false;
+    extraida = false;
     int tipoTemperatura;
 
     switch (valor) {
 
         case 1:
-            anual = true;
-            lectorMatriz(anio,Maux,anual,0);
+            lectorMatriz(anio,Maux,extraida,0);
             break;
         case 2:
-            int tipoTemperaturaAuxiliar;
             cout <<"Inserte el tipo de temperatura (2 minimas) (3 maximas): "<<endl;
             cin >> tipoTemperatura;
-            tipoTemperaturaAuxiliar = tipoTemperatura;
             while (tipoTemperatura < 2 or tipoTemperatura > 3){
                 cout << "Has introducido un valor incorrecto. (2 minimas) (3 máximas): "<<endl;
                 cin >> tipoTemperatura;
-                tipoTemperaturaAuxiliar = tipoTemperatura;
+
 
             }
             extraida =ExtraeDatos(anio,Maux,tipoTemperatura);
             break;
         case 3:
-            bool extraeDatosAuxiliar = true;
             if (!extraida) {
-                extraeDatosAuxiliar = false;
                 while (!extraida) {
 
                     cout
@@ -323,22 +319,28 @@ void opcionesSwitcher(int valor,const float anio[MAX_F][MAX_C], float Maux[MAX_F
                     extraida = ExtraeDatos(anio, Maux, tipoTemperatura);
 
                 }
-                lectorMatriz(anio, Maux, false, tipoTemperatura);
+                lectorMatriz(anio, Maux, extraida, tipoTemperatura);
             }
-            else if (extraida and extraeDatosAuxiliar){
+            else if (extraida){
 
-            lectorMatriz(anio,Maux,false,ultimaCol);
+            lectorMatriz(anio,Maux,extraida,ultimaCol);
             }
             break;
+        case 4:
+            valoresExtremosAnuales(anio,valorMax,valorMin,difference);
+            cout << "Temperatura más alta del año: "<< valorMax<<"."<<endl;
+            cout << "Temperatura más pequeña del año: "<< valorMin<<"."<<endl;
     }
+
     ultimaCol = tipoTemperatura;
 
 
 
-}
-void lectorMatriz(const float anio[MAX_F][MAX_C], float Maux[MAX_FNEW][MAX_CNEW], bool anual, int col){
 
-    if (anual){
+}
+void lectorMatriz(const float anio[MAX_F][MAX_C], float Maux[MAX_FNEW][MAX_CNEW], bool extraida, int col){
+
+    if (!extraida){
 
         for (int i = 0; i < MAX_F; i++) {
             cout << endl;
@@ -349,7 +351,7 @@ void lectorMatriz(const float anio[MAX_F][MAX_C], float Maux[MAX_FNEW][MAX_CNEW]
         cout << endl;
 
     }
-    else if (!anual) {
+    else if (extraida) {
         ExtraeDatos(anio, Maux, col);
         for (int i = 0; i < MAX_FNEW; i++) {
             for (int j = 0; j < MAX_CNEW; j++) {
