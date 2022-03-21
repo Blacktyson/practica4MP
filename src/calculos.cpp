@@ -333,6 +333,7 @@ void opcionesSwitcher(int valor,const float anio[MAX_F][MAX_C], float Maux[MAX_F
     }
 
 
+
     ultimaCol = tipoTemperatura;
 
 
