@@ -331,9 +331,6 @@ void opcionesSwitcher(int valor,const float anio[MAX_F][MAX_C], float Maux[MAX_F
             cout << "Temperatura más alta del año: "<< valorMax<<"."<<endl;
             cout << "Temperatura más pequeña del año: "<< valorMin<<"."<<endl;
     }
-
-
-
     ultimaCol = tipoTemperatura;
 
 
