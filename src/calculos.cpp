@@ -260,6 +260,7 @@ void menu(const float anio[MAX_F][MAX_C], float Maux[MAX_FNEW][MAX_CNEW]){
 
 
     }
+
     cout << "ok";
 
     opcionesSwitcher(valorIntroducido,anio,Maux);
