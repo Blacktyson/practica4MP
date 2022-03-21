@@ -256,6 +256,7 @@ void menu(const float anio[MAX_F][MAX_C], float Maux[MAX_FNEW][MAX_CNEW]){
     while (!valorIntroducidoCorrecto(valorIntroducido)){
 
 
+
         cout << "La opcion pedida no corresponde a ninguna opcion"<<endl;
         cin >> valorIntroducido;
 
